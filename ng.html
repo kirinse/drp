@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+   <head>
+      <meta charset="UTF-8" />
+      <title>A date range picker for Bootstrap</title>
+      <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+      <link href="http://netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+      <link rel="stylesheet" type="text/css" media="all" href="daterangepicker-bs3.css" />
+      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+      <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.28/angular.js"></script>
+      <script type="text/javascript" src="./ng-drp.js"></script>
+      <script type="text/javascript" src="moment.js"></script>
+      <script type="text/javascript" src="daterangepicker.js"></script>
+   </head>
+   <body>
+<div class="container">
+    <h1>Daterange picker example</h1>
+
+    <div class="row">
+        <div class="col-md-6" ng-controller="TestCtrl">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label for="daterange1" class="control-label">Simple picker</label>
+                    <input date-range-picker id="daterange1" class="form-control date-picker" type="text"
+                           name="date" ng-model="date" required/>
+                </div>
+                <div class="form-group">
+                    <label for="daterange2" class="control-label">Picker with min and max date</label>
+                    <input date-range-picker id="daterange2" class="form-control date-picker" type="text"
+                           min="'2014-02-23'" max="'2015-02-25'" name="date" ng-model="date"
+                           required/>
+                </div>
+                <div class="form-group">
+                    <label for="daterange3" class="control-label">Picker with custom locale</label>
+                    <input date-range-picker id="daterange3" class="form-control date-picker" type="text"
+                           name="date" ng-model="date" options="opts" required/>
+                </div>
+
+                <div class="form-group">
+                    <label for="daterange4" class="control-label">Picker with custom format</label>
+                    <div class="input-group col-md-6" id="daterange4">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                        <input date-range-picker class="form-control date-picker" type="text"
+                           name="date2" ng-model="date2" options="{format: 'MMMM D, YYYY'}" required/>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-chevron-down"></span></span>
+                    </div>
+                </div>
+            </form>
+
+            <div class="row">
+                <h4>Dates:</h4>
+                <div class="col-md-12 well">
+                    {{date}}<br>
+                    {{date2}}<br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+
+<script>
+exampleApp = angular.module('example', ['daterangepicker']);
+exampleApp.controller('TestCtrl', function($scope, $interval) {
+    $scope.date = {
+        startDate: moment().subtract("days", 1),
+        endDate: moment()
+    };
+    $scope.date2 = {
+        startDate: moment().subtract("days", 1),
+        endDate: moment()
+    };
+
+    $scope.opts = {
+        locale: {
+            applyClass: 'btn-green',
+            applyLabel: "Použít",
+            fromLabel: "Od",
+            toLabel: "Do",
+            cancelLabel: 'Zrušit',
+            customRangeLabel: 'Vlastní rozsah',
+            daysOfWeek: ['Ne', 'Po', 'Út', 'St', 'Čt', 'Pá', 'So'],
+            firstDay: 1,
+            monthNames: ['Leden', 'Únor', 'Březen', 'Duben', 'Květen', 'Červen', 'Červenec', 'Srpen', 'Září',
+                'Říjen', 'Listopad', 'Prosinec'
+            ]
+
+        },
+        ranges: {
+            'Last 7 Days': [moment().subtract('days', 6), moment()],
+            'Last 30 Days': [moment().subtract('days', 29), moment()]
+        }
+    };
+
+    //Watch for date changes
+    $scope.$watch('date', function(newDate) {
+        console.log('New date set: ', newDate);
+    }, false);
+
+});
+
+angular.bootstrap(document, ['example']);</script>
+
+</html>
