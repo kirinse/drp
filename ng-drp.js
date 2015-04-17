@@ -15,7 +15,7 @@
                 // by default, the daterangepicker element is placed at the bottom of HTML body
                 this.parentEl = 'body';
                 //element that triggered the date range picker
-                this.element = $(element);
+                this.element = element;
                 //tracks visible state
                 this.isShowing = false;
                 //create the picker HTML object
@@ -1314,23 +1314,17 @@
                             }
                             html += '</select>';
                         }
-
                         html += '</div>';
-
                     }
-
                     return html;
-
                 },
 
                 remove: function () {
-
                     this.container.remove();
                     this.element.off('.daterangepicker');
                     this.element.removeData('daterangepicker');
 
                 }
-
             };
 
             $.fn.daterangepicker = function (options, cb) {
@@ -1354,7 +1348,7 @@
                 },
                 link: function ($scope, element, attrs, modelCtrl) {
                     var customOpts, el, opts, _formatted, _init, _picker, _validateMax, _validateMin;
-                    el = $(element);
+                    el = element;
                     customOpts = $scope.opts;
                     opts = angular.extend({}, dateRangePickerConfig, customOpts);
                     _picker = null;
