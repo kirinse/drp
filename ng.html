@@ -14,51 +14,48 @@
       <!--<script type="text/javascript" src="daterangepicker.js"></script>-->
    </head>
    <body>
-<div class="container">
-    <h1>Daterange picker example</h1>
-
-    <div class="row">
-        <div class="col-md-6" ng-controller="TestCtrl">
-            <form class="form-horizontal">
-                <div class="form-group">
-                    <label for="daterange1" class="control-label">Simple picker</label>
-                    <input date-range-picker id="daterange1" class="form-control date-picker" type="text"
-                           name="date" ng-model="date" required/>
-                </div>
-                <div class="form-group">
-                    <label for="daterange2" class="control-label">Picker with min and max date</label>
-                    <input date-range-picker id="daterange2" class="form-control date-picker" type="text"
-                           min="'2014-02-23'" max="'2015-02-25'" name="date" ng-model="date"
-                           required/>
-                </div>
-                <div class="form-group" id="drp3">
-                    <label for="daterange3" class="control-label">Picker with custom locale</label>
-                    <input date-range-picker id="daterange3" class="form-control date-picker" type="text"
-                           name="date" ng-model="date" options="opts" required/>
-                </div>
-
-                <div class="form-group">
-                    <label for="daterange4" class="control-label">Picker with custom format</label>
-                    <div class="input-group col-md-6" id="daterange4">
-                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-                        <input date-range-picker class="form-control date-picker" type="text"
-                           name="date2" ng-model="date2" options="{format: 'MMMM D, YYYY'}" required/>
-                        <span class="input-group-addon"><span class="glyphicon glyphicon-chevron-down"></span></span>
+    <div class="container" ng-controller="TestCtrl">
+        <div class="row">
+            <div class="col-md-6 col-xs-12">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="daterange1" class="control-label">Simple picker</label>
+                        <input date-range-picker id="daterange1" class="form-control date-picker" type="text"
+                               name="date" ng-model="date" required/>
                     </div>
-                </div>
-            </form>
+                    <div class="form-group">
+                        <label for="daterange2" class="control-label">Picker with min and max date</label>
+                        <input date-range-picker id="daterange2" class="form-control date-picker" type="text"
+                               min="'2014-02-23'" max="'2015-02-25'" name="date" ng-model="date"
+                               required/>
+                    </div>
+                    <div class="form-group" id="drp3" style="position:relative;">
+                        <label for="daterange3" class="control-label">Picker with custom locale</label>
+                        <input date-range-picker id="daterange3" class="form-control date-picker" type="text"
+                               name="date" ng-model="date" options="opts" required/>
+                    </div>
 
-            <div class="row">
-                <h4>Dates:</h4>
-                <div class="col-md-12 well">
-                    {{date}}<br>
-                    {{date2}}<br>
-                </div>
+                    <div class="form-group">
+                        <label for="daterange4" class="control-label">Picker with custom format</label>
+                        <div class="input-group col-md-6" id="daterange4">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                            <input date-range-picker class="form-control date-picker" type="text"
+                               name="date2" ng-model="date2" options="{format: 'MMMM D, YYYY'}" required/>
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-chevron-down"></span></span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <h4>Dates:</h4>
+            <div class="col-md-12 well">
+                {{date}}<br>
+                {{date2}}<br>
             </div>
         </div>
     </div>
-</div>
-</body>
+  </body>
 
 
 <script>
@@ -102,6 +99,7 @@ exampleApp.controller('TestCtrl', function($scope, $interval) {
 
 });
 
-angular.bootstrap(document, ['example']);</script>
+angular.bootstrap(document, ['example']);
+</script>
 
 </html>
