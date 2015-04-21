@@ -71,20 +71,21 @@ exampleApp.controller('TestCtrl', function($scope, $interval) {
     };
 
     $scope.opts = {
-        locale: {
-            applyClass: 'btn-green',
-            applyLabel: "Použít",
-            fromLabel: "Od",
-            toLabel: "Do",
-            cancelLabel: 'Zrušit',
-            customRangeLabel: 'Vlastní rozsah',
-            daysOfWeek: ['Ne', 'Po', 'Út', 'St', 'Čt', 'Pá', 'So'],
-            firstDay: 1,
-            monthNames: ['Leden', 'Únor', 'Březen', 'Duben', 'Květen', 'Červen', 'Červenec', 'Srpen', 'Září',
-                'Říjen', 'Listopad', 'Prosinec'
-            ]
+        // locale: {
+        //     applyClass: 'btn-green',
+        //     applyLabel: "Použít",
+        //     fromLabel: "Od",
+        //     toLabel: "Do",
+        //     cancelLabel: 'Zrušit',
+        //     customRangeLabel: 'Vlastní rozsah',
+        //     daysOfWeek: ['Ne', 'Po', 'Út', 'St', 'Čt', 'Pá', 'So'],
+        //     firstDay: 1,
+        //     monthNames: ['Leden', 'Únor', 'Březen', 'Duben', 'Květen', 'Červen', 'Červenec', 'Srpen', 'Září',
+        //         'Říjen', 'Listopad', 'Prosinec'
+        //     ]
 
-        },
+        // },
+        opens: 'left',
         ranges: {
             'Last 7 Days': [moment().subtract('days', 6), moment()],
             'Last 30 Days': [moment().subtract('days', 29), moment()]
